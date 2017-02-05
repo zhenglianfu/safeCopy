@@ -1,5 +1,5 @@
 {
-  "name": "safe-copy",
+  "name": "safe-clone",
   "version": "1.0.0",
   "description": "safe copy javascript object",
   "main": "index.js",

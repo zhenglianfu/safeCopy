@@ -1,6 +1,6 @@
 {
   "name": "safe-clone",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "safe copy javascript object",
   "main": "index.js",
   "scripts": {
@@ -11,7 +11,13 @@
     "url": "git+https://github.com/zhenglianfu/safeCopy.git"
   },
   "keywords": [
-    "copy"
+    "copy",
+    "clone",
+    "deep",
+    "recursive",
+    "safe",
+    "object",
+    "javascript"
   ],
   "author": "zhenglianfu",
   "license": "ISC",

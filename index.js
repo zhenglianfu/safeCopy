@@ -6,18 +6,18 @@
 // 构造出新的深层次数据结构，循环的节点都替换成新的克隆对象，copy一个循环，循环的最后一个节点的指针指向新的对象
 function safeCopy(obj){
     // 构造树形结构，判断当前拷贝节点加入之后能否构成环形结构，若有则跳过该节点停止深拷贝该节点，否则继续
+    // 只需要向上检索，不需要向下检索，不需要children来持有子节点对象
     var root = createNode(null, null);
-    var currentNode = root;
     function createNode(val, parent){
         return {
             value: val,
-            children: [],
+            // children: [],
             parent: parent
         }
     }
     function addNode(value, parent) {
         var newNode = createNode(value, parent);
-        parent.children.push(newNode);
+        // parent.children.push(newNode);
         return newNode;
     }
     function existCircularParent(node){
@@ -39,19 +39,16 @@ function safeCopy(obj){
             return null;
         }
     }
-    /**
-     * tsLint 不可重复声明变量，函数内部局部变量不可覆盖形式参数
-     * */
     function recursiveCopy(value, parent){
         var copy = null;
         var node = null;
-        var recursiveNode = null;
+        var circularNode = null;
         if (value && typeof value === 'object') {
             node = addNode(value, parent);
-            recursiveNode = existCircularParent(node);
-            if (recursiveNode) {
+            circularNode = existCircularParent(node);
+            if (circularNode) {
                 // 返回recursiveNode.newValue，组成新的循环体
-                return recursiveNode.newValue;
+                return circularNode.newValue;
             } else {
                 // es5
                 if (Array.isArray(value)) {

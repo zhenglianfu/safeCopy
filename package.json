@@ -1,6 +1,6 @@
 {
   "name": "safe-clone",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "safe copy javascript object deeply",
   "main": "index.js",
   "scripts": {
